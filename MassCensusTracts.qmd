@@ -1,0 +1,22 @@
+---
+title: "MassCensusTracts"
+author: "Veer Patel"
+format: html
+execute: 
+echo: FALSE
+---
+
+```{r}
+#|message: false
+#|label: setup
+library(tidyverse)
+library(scales)
+```
+
+```{r}
+warning: FALSE
+nyc_tracts<-read_csv(file = "./mass-tracts.csv")
+nyc_tracts|>
+  drop_na()|>
+  ggplot(aes(x=med_income,fill=race))
+```
